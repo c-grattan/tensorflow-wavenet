@@ -7,6 +7,7 @@ import json
 import os
 
 import librosa
+import soundfile
 import numpy as np
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
@@ -114,7 +115,7 @@ def get_arguments():
 
 def write_wav(waveform, sample_rate, filename):
     y = np.array(waveform)
-    librosa.output.write_wav(filename, y, sample_rate)
+    soundfile.write(filename, y, sample_rate)
     print('Updated wav file at {}'.format(filename))
 
 
